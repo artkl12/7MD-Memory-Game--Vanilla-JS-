@@ -1,0 +1,102 @@
+:root {
+  --bg-color: #e2f9bc;
+  --container-color: #fbaa27;
+  --title-font: #282727;
+  --button: #f1dddd;
+  --button-bg: #323127;
+  --card-bg-color: #e2f9bc;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--bg-color);
+}
+
+.memory-game {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  background: var(--container-color);
+  padding: 40px 60px;
+}
+
+.game-title {
+  font-size: 3em;
+  color: var(--title-font);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.reset {
+  padding: 15px 30px;
+  color: var(--button);
+  background: var(--button-bg);
+  border: none;
+  border-radius: 10px;
+  font-size: 1.5em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.reset:focus {
+  color: var(--button-bg);
+  background: var(--button);
+}
+
+.game {
+  width: 340px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  transform-style: preserve-3d;
+  perspective: 500px; 
+}
+
+.card {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2 );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: transparent;
+  transition: 0.25s;
+  transform: rotateY(180deg);  
+}
+
+.card.boxOpen {
+  transform: rotateY(0deg);
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--card-bg-color);
+  transition: 0.25s;
+  transform: rotateY(0deg);
+  backface-visibility: hidden;
+}
+
+.boxOpen:after,
+.boxMatch:after {
+  transform: rotateY(180deg);
+}

@@ -1,6 +1,4 @@
-import { setTokenSourceMapRange } from "typescript";
-
-const colors = [
+const cardColors = [
   "cyan",    
   "deeppink",   
   "chartreuse",  
@@ -14,9 +12,10 @@ const colors = [
   "blue",
   "violet"  
 ];
-let colorsMix = colors.sort(() => (Math.random() > 0.5 ? 2 : -1));
+let colorsMix = cardColors.sort(() => (Math.random() > 0.5 ? 2 : -1));
 
-for (let i = 0; i < colors.length; i++) {
+
+for (let i = 0; i < cardColors.length; i++) {
   let box = document.createElement("div");
   box.className = "card";
   box.style.backgroundColor = colorsMix[i];
@@ -33,7 +32,7 @@ for (let i = 0; i < colors.length; i++) {
           document.querySelectorAll(".boxOpen")[1].classList.add("boxMatch");
           document.querySelectorAll(".boxOpen")[1].classList.remove("boxOpen");
           document.querySelectorAll(".boxOpen")[0].classList.remove("boxOpen");
-          if (document.querySelectorAll(".boxMatch").length === colors.length) {
+          if (document.querySelectorAll(".boxMatch").length === cardColors.length) {
             alert("Win!");
           }
         } else {
